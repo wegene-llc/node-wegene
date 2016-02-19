@@ -1,0 +1,18 @@
+{
+  "name": "node-wegene-example-query",
+  "version": "0.0.1",
+  "description": "Example of using Wegene Node.js SDK querying data",
+  "main": "example.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sdk",
+    "wegene"
+  ],
+  "author": "Eddie Wu",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.5.2"
+  }
+}
