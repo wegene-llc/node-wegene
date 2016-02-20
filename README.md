@@ -60,7 +60,9 @@ sport.getAdvice(profile_id, 'male', 26, 174, 84, 'slimming', function(error, res
 #### Get Health Data
 
 Use `wegene.Health.getRisk(profileId, reportId, callback)` to get health risk info
+
 Use `wegene.Health.getDrug(profileId, reportId, callback)` to get drug response info
+
 Use `wegene.Health.getCarrier(profileId, reportId, callback)` to get disease carrier info
 
 ```javascript
