@@ -35,7 +35,7 @@ user.getUser(function(error, result){
 
 #### Get Gene Allele Info
 
-Use `wegene.Allele.getAllele(profile_id, callback)` to get allele data
+Use `wegene.Allele.getAllele(profile_id, locations, callback)` to get allele data
 
 ```javascript
 var allele = wegene.Allele;
