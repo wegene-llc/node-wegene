@@ -51,7 +51,7 @@ Use `wegene.Sport.getAdvice(profileId, sex, age, height, weight, healthTarget, c
 
 ```javascript
 var sport = wegene.Sport;
-sport.getAdvice(profile_id, 'male', 26, 174, 84, 'slimming', function(error, result){
+sport.getAdvice(profile_id, 'man', 26, 174, 84, 'slimming', function(error, result){
   if(error){ return console.log(error) }
   console.log('Sport Advice:\n', JSON.stringify(result));
 });

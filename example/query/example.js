@@ -66,7 +66,7 @@ async.waterfall([
 	 */
 	function(profile_id, callback){
 		var sport = wegene.Sport;
-		sport.getAdvice(profile_id, 'male', 26, 174, 84, 'slimming', function(error, result){
+		sport.getAdvice(profile_id, 'man', 26, 174, 84, 'slimming', function(error, result){
 			if(error){ return callback(error.message) }
 			console.log('Sport Advice:\n', JSON.stringify(result));
 			console.log('----------');
