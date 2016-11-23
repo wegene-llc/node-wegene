@@ -89,6 +89,38 @@ async.waterfall([
 			console.log('----------');
 			callback(null, 'Query Completed!');
 		});
+	},
+	/**
+	 * Haplogroups based on genetic and individual information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {Haplogroups}
+	 */
+	function(profile_id, callback){
+		var haplogroups = wegene.Haplogroups;
+		haplogroups.getHaplogroups(profile_id, function(error, result){
+			if(error){ return callback(error.message) }
+			console.log('Haplogroups Results:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
+	/**
+	 * Ancestry Composition based on genetic and individual information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {Haplogroups}
+	 */
+	function(profile_id, callback){
+		var ancestry = wegene.Ancestry;
+		ancestry.getAncestry(profile_id, function(error, result){
+			if(error){ return callback(error.message) }
+			console.log('Ancestry Composition:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, 'Query Completed');
+		});
 	}],function(error, result){
 		if(error){ console.log(error) }
 		console.log(result);

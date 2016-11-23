@@ -1,6 +1,6 @@
 {
   "name": "node-wegene",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "WeGene (https://www.wegene.com) SDK for Node.js",
   "main": "./lib/node-wegene",
   "keywords": [

@@ -65,11 +65,41 @@ Use `wegene.Health.getDrug(profileId, reportId, callback)` to get drug response 
 
 Use `wegene.Health.getCarrier(profileId, reportId, callback)` to get disease carrier info
 
+Use `wegene.Health.getTraits(profileId, reportId, callback)` to get disease carrier info
+
+Use `wegene.Health.getMetabolism(profileId, reportId, callback)` to get disease carrier info
+
+Use `wegene.Health.getAthletigen(profileId, reportId, callback)` to get disease carrier info
+
 ```javascript
 var health = wegene.Health;
 health.getDrug(profile_id, 158,function(error, result){
   if(error){ return console.log(error) }
   console.log('Health Data:\n', JSON.stringify(result));
+});
+```
+
+#### Get Ancestry Composition Info
+
+Use `wegene.Ancestry.getAncestry(profile_id, callback)` to get ancestry composition info
+
+```javascript
+var ancestry = wegene.Ancestry;
+ancestry.getAncestry(profile_id, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Ancestry Composition:\n', JSON.stringify(result));
+});
+```
+
+#### Get Haplogroups
+
+Use `wegene.Haplogroups.getHaplogroups(profile_id, callback)` to get haplogroups result
+
+```javascript
+var haplogroups = wegene.Haplogroups;
+haplogroups.getHaplogroups(profile_id, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Haplogroups Result:\n', JSON.stringify(result));
 });
 ```
 
