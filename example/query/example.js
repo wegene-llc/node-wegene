@@ -13,7 +13,7 @@ var wegene = require('../../lib/node-wegene');
  * Node.js Express apps can use passport-wegene package
  */
 var config = wegene.configuration;
-config.oAuthAccessToken = '<A Valid Access Token With Proper Scope>';
+config.oAuthAccessToken = '<Replace the access token with one with proper scope>';
 
 async.waterfall([
 	/**
@@ -32,6 +32,40 @@ async.waterfall([
       callback(null, result.profiles[0].id);
     });
   },
+	/**
+	 * Health Risks based on genetic information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {mixed}
+	 */
+	function(profile_id, callback){
+		var risk = wegene.Risk;
+		risk.getRisk(profile_id, 88,function(error, result){
+			if(error){ return callback(error.message) }
+			console.log('Health Risk:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
+	/**
+	 * Health Risks based on genetic information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {mixed}
+	 */
+	function(profile_id, callback){
+		var athletigen = wegene.Athletigen;
+		athletigen.getAthletigen(profile_id, 1487,function(error, result){
+			if(error){ return callback(error.message) }
+			console.log('Health Risk:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
 	/**
 	 * Drug response based on genetic information
 	 * @param {string} profileId    Required parameter: Genetic profile Id
