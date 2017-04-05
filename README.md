@@ -57,9 +57,31 @@ sport.getAdvice(profile_id, 'man', 26, 174, 84, 'slimming', function(error, resu
 });
 ```
 
-#### Get Health Data
+#### Get Health Risk Data
 
-Use `wegene.Health.getRisk(profileId, reportId, callback)` to get health risk info
+Use `wegene.Risk.getRisk(profileId, reportId, callback)` to get health risk info
+
+```javascript
+var risk = wegene.Risk;
+risk.getRisk(profile_id, 88, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Health Data:\n', JSON.stringify(result));
+});
+```
+
+#### Get Athletigen Data
+
+Use `wegene.Athletigen.getAthletigen(profileId, reportId, callback)` to get athletigen info
+
+```javascript
+var athletigen = wegene.Athletigen;
+athletigen.getAthletigen(profile_id, 1487, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Health Data:\n', JSON.stringify(result));
+});
+```
+
+#### Get Health Data
 
 Use `wegene.Health.getDrug(profileId, reportId, callback)` to get drug response info
 
@@ -69,11 +91,9 @@ Use `wegene.Health.getTraits(profileId, reportId, callback)` to get disease carr
 
 Use `wegene.Health.getMetabolism(profileId, reportId, callback)` to get disease carrier info
 
-Use `wegene.Health.getAthletigen(profileId, reportId, callback)` to get disease carrier info
-
 ```javascript
 var health = wegene.Health;
-health.getDrug(profile_id, 158,function(error, result){
+health.getDrug(profile_id, 158, function(error, result){
   if(error){ return console.log(error) }
   console.log('Health Data:\n', JSON.stringify(result));
 });
@@ -127,4 +147,3 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/xraywu/node-wegene/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
