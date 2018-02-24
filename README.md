@@ -123,6 +123,12 @@ haplogroups.getHaplogroups(profile_id, function(error, result){
 });
 ```
 
+## Promise API
+```javascript
+const wegene = require('../../lib/node-wegene').promise;
+```
+then, all the methods above will return a promise, and you need not pass a callback.
+
 ## Documentation
   - [Full WeGene API Document](https://api.wegene.com/docs/)
 
