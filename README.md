@@ -127,7 +127,7 @@ haplogroups.getHaplogroups(profile_id, function(error, result){
 ```javascript
 const wegene = require('../../lib/node-wegene').promise;
 ```
-then, use __then__ method instead of callback in the methods above.
+then, all the methods above will return a promise, and you need not pass a callback.
 
 ## Documentation
   - [Full WeGene API Document](https://api.wegene.com/docs/)
