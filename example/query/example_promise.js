@@ -1,8 +1,7 @@
 const wegene = require('../../lib/node-wegene').promise;
 
 let config = wegene.configuration;
-// config.oAuthAccessToken = '<Replace the access token with one with proper scope>';
-config.oAuthAccessToken = '9fe0d2f62cc396df5643e63d3ac78ee1';
+config.oAuthAccessToken = '<Replace the access token with one with proper scope>';
 
 let userInfo = {};
 
@@ -16,6 +15,7 @@ async function getUser () {
   }
 }
 
+// { message: 'HTTP Response Not OK', code: 500, response: '' }
 async function getSportAdvice () {
   try {
     const advice = await wegene.Sport.getAdvice(userInfo.profiles[0].id, userInfo.profiles[0].sex, 28, 178, 65);
@@ -34,10 +34,90 @@ async function getRisk () {
   }
 }
 
+async function getCarrier () {
+  try {
+    const carrier = await wegene.Health.getCarrier(userInfo.profiles[0].id, 203);
+    console.log(`Nijmegen Breakage Syndrome: \n ${JSON.stringify(carrier)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getDrug () {
+  try {
+    const drug = await wegene.Health.getDrug(userInfo.profiles[0].id, 1462);
+    console.log(`Alcohol: \n ${JSON.stringify(drug)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getTraits () {
+  try {
+    const traits = await wegene.Health.getTraits(userInfo.profiles[0].id, 246);
+    console.log(`Sleep time: \n ${JSON.stringify(traits)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getMetabolism () {
+  try {
+    const metabolism = await wegene.Health.getMetabolism(userInfo.profiles[0].id, 256);
+    console.log(`Vitamin-A: \n ${JSON.stringify(metabolism)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getHaplogroups () {
+  try {
+    const haplogroups = await wegene.Haplogroups.getHaplogroups(userInfo.profiles[0].id);
+    console.log(`Haplogroups: \n ${JSON.stringify(haplogroups)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getAthletigen () {
+  try {
+    const athletigen = await wegene.Athletigen.getAthletigen(userInfo.profiles[0].id, 1487);
+    console.log(`Endurance: \n ${JSON.stringify(athletigen)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getAncestry () {
+  try {
+    const ancestry = await wegene.Ancestry.getAncestry(userInfo.profiles[0].id);
+    console.log(`Ancestry: \n ${JSON.stringify(ancestry)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getAllele () {
+  try {
+    const allele = await wegene.Allele.getAllele(userInfo.profiles[0].id, ['rs182549']);
+    console.log(`rs182549 allele: \n ${JSON.stringify(allele)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function test () {
   await getUser();
   await getSportAdvice();
-  await getRisk();
+  // await getRisk();
+  // await getCarrier();
+  // await getDrug();
+  // await getTraits();
+  // await getMetabolism();
+  // await getHaplogroups();
+  // await getAthletigen();
+  // await getAncestry();
+  // await getAllele();
 }
 
 test();
