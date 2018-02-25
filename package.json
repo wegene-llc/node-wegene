@@ -1,6 +1,6 @@
 {
   "name": "node-wegene",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "WeGene (https://www.wegene.com) SDK for Node.js",
   "main": "./lib/node-wegene",
   "keywords": [
@@ -15,6 +15,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "http://github.com/xraywu/node-wegene.git"
+    "url": "https://github.com/wegene-llc/node-wegene"
   }
 }

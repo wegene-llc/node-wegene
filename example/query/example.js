@@ -13,7 +13,7 @@ var wegene = require('../../lib/node-wegene');
  * Node.js Express apps can use passport-wegene package
  */
 var config = wegene.configuration;
-config.oAuthAccessToken = '<Replace the access token with one with proper scope>';
+config.oAuthAccessToken = '<Replace With Access Token With Proper Scopes>';
 
 async.waterfall([
 	/**
@@ -38,11 +38,11 @@ async.waterfall([
 	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
 	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
 	 *
-	 * @return {mixed}
+	 * @return {Report}
 	 */
 	function(profile_id, callback){
 		var risk = wegene.Risk;
-		risk.getRisk(profile_id, 88,function(error, result){
+		risk.getRisk(profile_id, 104, function(error, result){
 			if(error){ return callback(error.message) }
 			console.log('Health Risk:\n', JSON.stringify(result));
 			console.log('----------');
@@ -55,13 +55,13 @@ async.waterfall([
 	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
 	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
 	 *
-	 * @return {mixed}
+	 * @return {Report}
 	 */
 	function(profile_id, callback){
 		var athletigen = wegene.Athletigen;
-		athletigen.getAthletigen(profile_id, 1487,function(error, result){
+		athletigen.getAthletigen(profile_id, 1487, function(error, result){
 			if(error){ return callback(error.message) }
-			console.log('Health Risk:\n', JSON.stringify(result));
+			console.log('Athletigen:\n', JSON.stringify(result));
 			console.log('----------');
 			callback(null, profile_id);
 		});
@@ -72,37 +72,16 @@ async.waterfall([
 	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
 	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
 	 *
-	 * @return {mixed}
+	 * @return {Report}
 	 *
 	 *
 	 * ** Same usage for querying Health Risk (health.getRisk()) and Disease Carrier (health.getCarrier())
 	 */
 	function(profile_id, callback){
 		var health = wegene.Health;
-		health.getDrug(profile_id, 158,function(error, result){
+		health.getDrug(profile_id, 1462, function(error, result){
 			if(error){ return callback(error.message) }
 			console.log('Health Report:\n', JSON.stringify(result));
-			console.log('----------');
-			callback(null, profile_id);
-		});
-	},
-	/**
-	 * Sports advice based on genetic and individual information
-	 * @param {string} profileId    Required parameter: Genetic profile Id
-	 * @param {string} sex    Required parameter: Sex of the user
-	 * @param {int} age    Required parameter: Age of the user
-	 * @param {int} height    Required parameter: Height of the user
-	 * @param {int} weight    Required parameter: Weight of the user
-	 * @param {string} healthTarget    Required parameter: Target for sport, only supporting slimming now
-	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
-	 *
-	 * @return {SportAdvice}
-	 */
-	function(profile_id, callback){
-		var sport = wegene.Sport;
-		sport.getAdvice(profile_id, 'man', 26, 174, 84, 'slimming', function(error, result){
-			if(error){ return callback(error.message) }
-			console.log('Sport Advice:\n', JSON.stringify(result));
 			console.log('----------');
 			callback(null, profile_id);
 		});
@@ -113,15 +92,15 @@ async.waterfall([
 	 * @param {array} locations    Required parameter: Allele locations in array
 	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
 	 *
-	 * @return {mixed}
+	 * @return {Alleles}
 	 */
 	function(profile_id, callback){
 		var allele = wegene.Allele;
-		allele.getAllele(profile_id, ['rs182549'], function(error, result){
+		allele.getAllele(profile_id, ['rs671', 'rs529040510'], function(error, result){
 			if(error){ return callback(error.message) }
 			console.log('Allele Data:\n', JSON.stringify(result));
 			console.log('----------');
-			callback(null, 'Query Completed!');
+			callback(null, profile_id);
 		});
 	},
 	/**
@@ -145,7 +124,7 @@ async.waterfall([
 	 * @param {string} profileId    Required parameter: Genetic profile Id
 	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
 	 *
-	 * @return {Haplogroups}
+	 * @return {AncestryComposition}
 	 */
 	function(profile_id, callback){
 		var ancestry = wegene.Ancestry;
@@ -153,7 +132,7 @@ async.waterfall([
 			if(error){ return callback(error.message) }
 			console.log('Ancestry Composition:\n', JSON.stringify(result));
 			console.log('----------');
-			callback(null, 'Query Completed');
+			callback(null, 'profile_id');
 		});
 	}],function(error, result){
 		if(error){ console.log(error) }

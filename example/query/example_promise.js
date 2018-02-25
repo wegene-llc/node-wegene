@@ -1,7 +1,7 @@
 const wegene = require('../../lib/node-wegene').promise;
 
 let config = wegene.configuration;
-config.oAuthAccessToken = '<Replace the access token with one with proper scope>';
+config.oAuthAccessToken = 'Replace With Access Token With Proper Scopes';
 
 let userInfo = {};
 
@@ -10,16 +10,6 @@ async function getUser () {
     const user = await wegene.User.getUser();
     userInfo = user;
     console.log(`User Info: \n ${JSON.stringify(user)}`);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-// { message: 'HTTP Response Not OK', code: 500, response: '' }
-async function getSportAdvice () {
-  try {
-    const advice = await wegene.Sport.getAdvice(userInfo.profiles[0].id, userInfo.profiles[0].sex, 28, 178, 65);
-    console.log(`Sport Advice: \n ${JSON.stringify(advice)}`);
   } catch (err) {
     console.log(err);
   }
@@ -36,7 +26,7 @@ async function getRisk () {
 
 async function getCarrier () {
   try {
-    const carrier = await wegene.Health.getCarrier(userInfo.profiles[0].id, 203);
+    const carrier = await wegene.Health.getCarrier(userInfo.profiles[0].id, 189);
     console.log(`Nijmegen Breakage Syndrome: \n ${JSON.stringify(carrier)}`);
   } catch (err) {
     console.log(err);
@@ -54,7 +44,7 @@ async function getDrug () {
 
 async function getTraits () {
   try {
-    const traits = await wegene.Health.getTraits(userInfo.profiles[0].id, 246);
+    const traits = await wegene.Health.getTraits(userInfo.profiles[0].id, 1);
     console.log(`Sleep time: \n ${JSON.stringify(traits)}`);
   } catch (err) {
     console.log(err);
@@ -99,7 +89,7 @@ async function getAncestry () {
 
 async function getAllele () {
   try {
-    const allele = await wegene.Allele.getAllele(userInfo.profiles[0].id, ['rs182549']);
+    const allele = await wegene.Allele.getAllele(userInfo.profiles[0].id, ['rs529040510', 'rs671']);
     console.log(`rs182549 allele: \n ${JSON.stringify(allele)}`);
   } catch (err) {
     console.log(err);
@@ -108,16 +98,15 @@ async function getAllele () {
 
 async function test () {
   await getUser();
-  await getSportAdvice();
-  // await getRisk();
-  // await getCarrier();
-  // await getDrug();
-  // await getTraits();
-  // await getMetabolism();
-  // await getHaplogroups();
-  // await getAthletigen();
-  // await getAncestry();
-  // await getAllele();
+  await getRisk();
+  await getCarrier();
+  await getDrug();
+  await getTraits();
+  await getMetabolism();
+  await getHaplogroups();
+  await getAthletigen();
+  await getAncestry();
+  await getAllele();
 }
 
 test();

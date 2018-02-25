@@ -1,6 +1,6 @@
 {
   "name": "node-wegene-example-query",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Example of using Wegene Node.js SDK querying data",
   "main": "example.js",
   "scripts": {

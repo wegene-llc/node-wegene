@@ -45,18 +45,6 @@ allele.getAllele(profile_id, ['rs182549'], function(error, result){
 });
 ```
 
-#### Get Sport Advice
-
-Use `wegene.Sport.getAdvice(profileId, sex, age, height, weight, healthTarget, callback)` to get sport advice
-
-```javascript
-var sport = wegene.Sport;
-sport.getAdvice(profile_id, 'man', 26, 174, 84, 'slimming', function(error, result){
-  if(error){ return console.log(error) }
-  console.log('Sport Advice:\n', JSON.stringify(result));
-});
-```
-
 #### Get Health Risk Data
 
 Use `wegene.Risk.getRisk(profileId, reportId, callback)` to get health risk info
