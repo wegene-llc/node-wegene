@@ -123,7 +123,7 @@ then, all the methods above will return a promise, and you need not pass a callb
 
 ## Credits
   - [Eddie Wu](https://xraywu.github.io)
-  - @cheiron1990(https://zyy.life)
+  - [@cheiron1990](https://zyy.life)
 
 ## Thanks
   - The SDK is modified on top of the code auto-generated using [APIMATIC](https://apimatic.io). Huge thanks to the team as this is a real life saver!!
