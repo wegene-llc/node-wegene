@@ -78,10 +78,37 @@ async function getAthletigen () {
   }
 }
 
+async function getSkin() {
+  try {
+    const skin = await wegene.Skin.getSkin(userInfo.profiles[0].id, 1522);
+    console.log(`Endurance: \n ${JSON.stringify(skin)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getPsychology() {
+  try {
+    const psychology = await wegene.Psychology.getPsychology(userInfo.profiles[0].id, 1557);
+    console.log(`Endurance: \n ${JSON.stringify(psychology)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 async function getAncestry () {
   try {
     const ancestry = await wegene.Ancestry.getAncestry(userInfo.profiles[0].id);
     console.log(`Ancestry: \n ${JSON.stringify(ancestry)}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function getDemographics() {
+  try {
+    const demographics = await wegene.Demographics.getDemographics(userInfo.profiles[0].id);
+    console.log(`Endurance: \n ${JSON.stringify(demographics)}`);
   } catch (err) {
     console.log(err);
   }
@@ -105,7 +132,10 @@ async function test () {
   await getMetabolism();
   await getHaplogroups();
   await getAthletigen();
+  await getSkin();
+  await getPsychology();
   await getAncestry();
+  await getDemographics();
   await getAllele();
 }
 

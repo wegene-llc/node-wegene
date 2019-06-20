@@ -69,6 +69,42 @@ athletigen.getAthletigen(profile_id, 1487, function(error, result){
 });
 ```
 
+#### Get Skin Data
+
+Use `wegene.Skin.getSkin(profileId, reportId, callback)` to get skin info
+
+```javascript
+var skin = wegene.Skin;
+skin.getSkin(profile_id, 1522, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Skin Data:\n', JSON.stringify(result));
+});
+```
+
+#### Get Psychology Data
+
+Use `wegene.Psychology.getPsychology(profileId, reportId, callback)` to get psychology info
+
+```javascript
+var psychology = wegene.Psychology;
+psychology.getPsychology(profile_id, 1557, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Psychology Data:\n', JSON.stringify(result));
+});
+```
+
+#### Get Athletigen Data
+
+Use `wegene.Athletigen.getAthletigen(profileId, reportId, callback)` to get athletigen info
+
+```javascript
+var athletigen = wegene.Athletigen;
+athletigen.getAthletigen(profile_id, 1487, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Health Data:\n', JSON.stringify(result));
+});
+```
+
 #### Get Health Data
 
 Use `wegene.Health.getDrug(profileId, reportId, callback)` to get drug response info
@@ -108,6 +144,18 @@ var haplogroups = wegene.Haplogroups;
 haplogroups.getHaplogroups(profile_id, function(error, result){
   if(error){ return console.log(error) }
   console.log('Haplogroups Result:\n', JSON.stringify(result));
+});
+```
+
+#### Get Demographics
+
+Use `wegene.Demographics.getDemographics(profile_id, callback)` to get demographics result
+
+```javascript
+var demographics = wegene.Demographics;
+demographics.getDemographics(profile_id, function(error, result){
+  if(error){ return console.log(error) }
+  console.log('Demographics Result:\n', JSON.stringify(result));
 });
 ```
 

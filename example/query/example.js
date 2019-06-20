@@ -67,6 +67,40 @@ async.waterfall([
 		});
 	},
 	/**
+	 * Skin characteristics based on genetic information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {Report}
+	 */
+	function (profile_id, callback) {
+		var skin = wegene.Skin;
+		skin.getSkin(profile_id, 1522, function (error, result) {
+			if (error) { return callback(error.message) }
+			console.log('Skin:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
+	/**
+	 * Psychology profile based on genetic information
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {Report}
+	 */
+	function (profile_id, callback) {
+		var psychology = wegene.Psychology;
+		psychology.getPsychology(profile_id, 1557, function (error, result) {
+			if (error) { return callback(error.message) }
+			console.log('Psychology:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
+	/**
 	 * Drug response based on genetic information
 	 * @param {string} profileId    Required parameter: Genetic profile Id
 	 * @param {string} reportId    Required parameter: Report Id for the specific drug response to look
@@ -115,6 +149,22 @@ async.waterfall([
 		haplogroups.getHaplogroups(profile_id, function(error, result){
 			if(error){ return callback(error.message) }
 			console.log('Haplogroups Results:\n', JSON.stringify(result));
+			console.log('----------');
+			callback(null, profile_id);
+		});
+	},
+	/**
+	 * User filled Demographics
+	 * @param {string} profileId    Required parameter: Genetic profile Id
+	 * @param {function} callback    Required parameter: Callback function in the form of function(error, response)
+	 *
+	 * @return {Demographics}
+	 */
+	function (profile_id, callback) {
+		var demographics = wegene.Demographics;
+		demographics.getDemographics(profile_id, function (error, result) {
+			if (error) { return callback(error.message) }
+			console.log('Demographics Results:\n', JSON.stringify(result));
 			console.log('----------');
 			callback(null, profile_id);
 		});
